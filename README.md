@@ -1,5 +1,5 @@
 # Overview
-Nicht is a nonintrusive PHP5 lightweight authorization and authentication framework for the development of small to average size web application. We been using it for a while (~2004) in various environments and thought others might be interested in using it.
+Nicht is a nonintrusive, security oriented and high performance PHP5 lightweight framework for the development of small to average size web application. We been using it for a while (~2004) in various environments and thought others might be interested in using it.
 
 # Description
 This framework is as simple as it can get. The idea is to **get out of your way** and let you build the application however you want. The framework does not offer a suite of fancy libraries to answer all of your possible wishes. Instead, it will let you use whatever you want without interfering.
@@ -19,8 +19,14 @@ Nicht have been built with security as a primary concern. Some basic architectur
 ## Authorization modules presently implemented:
 * MySQLi - one table group
 
-## Stupid Pass
-[StupidPass.class.php] (https://github.com/northox/nicht/blob/master/lib/StupidPass.class.php) is a simple password quality enforcer which was found to be pretty effective. It implements 1337 speaking convertion (e.g. 1=i,4=a,0=o, etc), enforcing at least 8 characters password with multiple charsets (uppsercase, lowercase, numeric, special) and restricting use of common password based on latest password analysis (sony, phpbb, etc).
+# Password quality enforcer
+To prevent common password attacks, [StupidPass.class.php] (https://github.com/northox/nicht/blob/master/lib/StupidPass.class.php) has been integrated. It implements 1337 speaking convertion (e.g. admin=@dm1n : 1=i,4=a,0=o, etc), enforcing at least 8 characters password with multiple charsets (uppsercase, lowercase, numeric, special) and restricting use of common password based on latest password analysis (sony, phpbb, etc).
+
+# Performance
+We'll post some benchmark results shortly.
+
+# Template system
+We use PHP directly since the moment we measured the performance impacts of commons templating systems. However, if needed you can easily integrate most templating system. We tested Smarty, Template lite and Savant3.
 
 # License
 BSD license. In other word it's free software, free as in free beer.
