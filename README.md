@@ -20,7 +20,7 @@ Nicht have been built with security as a primary concern. Some basic architectur
 * MySQLi - one table group
 
 # Password quality enforcer
-To prevent common password attacks, [StupidPass.class.php] (https://github.com/northox/nicht/blob/master/lib/StupidPass.class.php) has been integrated. It implements 1337 speaking convertion (e.g. admin=@dm1n : 1=i,4=a,0=o, etc), enforcing at least 8 characters password with multiple charsets (uppsercase, lowercase, numeric, special) and restricting use of common password based on latest password analysis (sony, phpbb, etc).
+To prevent common password attacks, [Stupid Password] (https://github.com/northox/stupid-password) has been integrated.
 
 # Performance
 We'll post some benchmark results shortly.
@@ -32,5 +32,5 @@ We use PHP directly since the moment we measured the performance impacts of comm
 BSD license. In other word it's free software, free as in free beer.
 
 # Authors
-Danny Fullerton - Mantor Organization
+Danny Fullerton - Mantor Organization  
 Jean-Francois Rioux - Mantor Organization
