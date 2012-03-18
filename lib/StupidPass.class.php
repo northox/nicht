@@ -5,41 +5,16 @@
 * This class provide simple yep pretty effective password validation rules by
 * introducing 1337 speaking convertion (e.g. 1=i,4=a,0=o, etc), validating
 * lenght, use of multiple charsets (uppsercase, lowercase, numeric, special),
-* and use of common password based on latest password analysis (sony, phpbb,
-* etc).
+* and use of common password based on latest password analysis (stratfor, sony, 
+* phpbb, etc).
 *
-* @author Danny Fullerton - Mantor Orgnization www.mantor.org
+* @author Danny Fullerton - Mantor Organization www.mantor.org
 * @version 1.0
 * @license BSD
 *
 * Usage:
 *   $sp = new StupidPass();
 *   $boolResult = $sp->valitate($PasswordToTest);
-*
-* Copyright (c) Mantor Organization, 2008-2011
-* All rights reserved.
-*
-* Redistribution and use in source and binary forms, with or without
-* modification, are permitted provided that the following conditions are met:
-*    * Redistributions of source code must retain the above copyright
-*      notice, this list of conditions and the following disclaimer.
-*    * Redistributions in binary form must reproduce the above copyright
-*      notice, this list of conditions and the following disclaimer in the
-*      documentation and/or other materials provided with the distribution.
-*    * Neither the name of  Mantor Organization nor the
-*      names of its contributors may be used to endorse or promote products
-*      derived from this software without specific prior written permission.
-*
-* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-* ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-* DISCLAIMED. IN NO EVENT SHALL Mantor Organization BE LIABLE FOR ANY
-* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
  
 class StupidPass
@@ -57,9 +32,9 @@ class StupidPass
   private $pass = array();
   private $errors = array();
   private $minlen = 8;    // No, this is not an option.
-  private $maxlen = null;
-  private $dict = null;
-  private $environ = array(); // Environmental password (e.g. the name of the software or the company)
+  private $maxlen = null; // Password max char. Should be set according to your database.
+  private $dict = null;   // Path to the dictionary
+  private $environ = array(); // Regex of environmental info such as the name of the company.
 
   public function __construct($maxlen = 40, $environ = array(), $dict = null, $lang = null)
   {
@@ -79,6 +54,7 @@ class StupidPass
     $this->special();
    
     $this->extrapolate();
+    
     $this->environmental();
     $this->common();
     $this->pass = null;
@@ -131,7 +107,7 @@ class StupidPass
   {
     foreach($this->environ as $env) {
       foreach($this->pass as $pass) {
-        if($pass == $env) {
+        if(preg_match("/$env/", $pass) == 1) {
           $this->errors[] = $this->lang['environ'];
           return;
         }
@@ -205,3 +181,4 @@ class StupidPass
     }
   }
 }
+?>
