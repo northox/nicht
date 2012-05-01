@@ -56,9 +56,10 @@ $tpl->assign('title', 'Administration');
     }
 
     public function setPassword($password){
-      if($this->validatesAgainstStupidPass($password))
+      if($this->validatesAgainstStupidPass($password)) {
         $this->salt = substr(md5(uniqid()), 0, 8);
         $this->password = base64_encode(pbkdf2($password, $this->salt));
+      }
     }
 
     public function setAdmin($admin){
