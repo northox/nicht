@@ -1,5 +1,6 @@
 # Overview
 Nicht is a nonintrusive, security oriented and high performance PHP5 lightweight framework for the development of small to average size web application. We been using it for a while (~2004) in various environments and thought others might be interested in using it.
+![nicht](https://www.mantor.org/~northox/misc/nicht.jpg)
 
 # Description
 This framework is as simple as it can get. The idea is to **get out of your way** and let you build the application however you want. The framework does not offer a suite of fancy libraries to answer all of your possible wishes. Instead, it will let you use whatever you want without interfering.
