@@ -73,7 +73,7 @@ class MysqliNichtAuthPbkdf2 extends NichtAuth
  *
  *	@return  string  derived key
 */
-function pbkdf2( $p, $s, $c = 1024, $kl = 32, $a = 'sha256' )
+function pbkdf2( $p, $s, $c = 20000, $kl = 32, $a = 'sha256' )
 {
 	$hl = strlen(hash($a, null, true));	# Hash length
 	$kb = ceil($kl / $hl);				      # Key blocks to compute
