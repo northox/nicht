@@ -16,8 +16,8 @@ Nicht have been built with **security as a primary concern**. Some basic archite
 Read [Nicht.class.php] (https://github.com/northox/nicht/blob/master/lib/nicht/Nicht.class.php) if you want to learn how it works.
 
 ## Authentication modules presently implemented:
-* MySQLi [PBKDF2] (http://en.wikipedia.org/wiki/PBKDF2) (Password Based Key Derivation Function) - strong hash (sha256), multiple iteration (20k), random salt
-* LDAP/LDAPs
+* MySQLi [PBKDF2] (http://en.wikipedia.org/wiki/PBKDF2) (Password Based Key Derivation Function) - strong hash (sha256), multiple iteration (20k), random salt - [auth](https://github.com/northox/nicht/blob/master/lib/nicht/MysqliNichtAuthPbkdf2.class.php#L53) , [set](https://github.com/northox/nicht/blob/master/src/admin.php#L58).
+* LDAP/LDAPs - [auth](https://github.com/northox/nicht/blob/master/lib/nicht/LdapNichtAuth.class.php)
 
 ## Authorization modules presently implemented:
 * MySQLi - one table group
