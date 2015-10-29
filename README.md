@@ -1,3 +1,6 @@
+# Warning
+This code is dead is should only be used as a reference. No support provided. **Use at your own risk.**
+
 # Nicht
 Nicht is a nonintrusive, security oriented and high performance PHP5 lightweight framework for the development of small to average size web application. We been using it for a while (~2004) in various environments and thought others might be interested in using it.
 ![nicht](https://www.mantor.org/~northox/misc/nicht.jpg)
